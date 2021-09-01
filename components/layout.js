@@ -8,6 +8,7 @@ const name = 'Plowshare Asdfg'
 export const siteTitle = 'Next.js Sample Website'
 
 export default function Layout({ children, home }) {
+  const snapChildClass = home? styles.snapChild : "";
   return (
     <div className={styles.container}>
       <Head>
@@ -25,7 +26,7 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <div className={styles.snapChild} style={{padding: "2rem 2rem"}}>
+      <div className={snapChildClass} style={{padding: "2rem 2rem"}}>
 
         <header className={styles.header}>
           {home ? (
@@ -38,7 +39,7 @@ export default function Layout({ children, home }) {
                 width={144}
                 alt={name}
               />
-              <h1 className={utilStyles.heading2Xl}>{name}asdf</h1>
+              <h1 className={utilStyles.heading2Xl}>{name}</h1>
             </>
           ) : (
             <>
@@ -63,7 +64,7 @@ export default function Layout({ children, home }) {
           )}
         </header>
       </div>
-      <main className={styles.snapChild}>{children}</main>
+      <main className={snapChildClass}>{children}</main>
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">
